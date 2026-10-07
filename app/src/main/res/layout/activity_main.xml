@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<androidx.core.widget.NestedScrollView
+        android:id="@+id/homeSection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="18dp">
+
+                <ImageView
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:src="@drawable/logo_festiverse" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/app_name"
+                        android:textColor="@color/text_primary"
+                        android:textSize="23sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.01" />
+
+                    <TextView
+                        android:id="@+id/greeting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="Namaste"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/feedbackBtn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/circle_surface"
+                    android:contentDescription="@string/send_feedback"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_feedback" />
+
+                <ImageView
+                    android:id="@+id/themeToggle"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/circle_surface"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_light_mode" />
+
+                <ImageView
+                    android:id="@+id/logoutBtn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/circle_surface"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_logout" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/search_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="14dp">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_search" />
+
+                <EditText
+                    android:id="@+id/searchBox"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/search_hint"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingHorizontal="10dp"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/hint"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/clearSearch"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_close" />
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/heroImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="270dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/placeholder_gradient" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="270dp"
+                        android:background="@drawable/hero_scrim" />
+
+                    <com.festiverse.app.ui.FestiveAnimationView
+                        android:id="@+id/heroFx"
+                        android:layout_width="match_parent"
+                        android:layout_height="270dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/pill_bg"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="3dp"
+                            android:text="@string/next_up"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.08" />
+
+                        <TextView
+                            android:id="@+id/heroName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Bijaya Dashami"
+                            android:textColor="@color/white"
+                            android:textSize="26sp"
+                            android:textStyle="bold"
+                            android:shadowColor="#99000000"
+                            android:shadowDy="2"
+                            android:shadowRadius="6" />
+
+                        <TextView
+                            android:id="@+id/heroNepali"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="विजया दशमी"
+                            android:textColor="#E8E8E8"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/heroDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Wed, Oct 21, 2026"
+                            android:textColor="#CFCFCF"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="62dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/timer_box"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:paddingVertical="10dp">
+
+                                <TextView
+                                    android:id="@+id/cdDays"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="00"
+                                    android:textColor="@color/white"
+                                    android:textSize="23sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/days"
+                                    android:textColor="#DDDDDD"
+                                    android:textSize="9sp"
+                                    android:letterSpacing="0.06" />
+                            </LinearLayout>
+
+                            <Space android:layout_width="8dp" android:layout_height="0dp" />
+
+                            <LinearLayout
+                                android:layout_width="62dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/timer_box"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:paddingVertical="10dp">
+
+                                <TextView
+                                    android:id="@+id/cdHours"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="00"
+                                    android:textColor="@color/white"
+                                    android:textSize="23sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/hours"
+                                    android:textColor="#DDDDDD"
+                                    android:textSize="9sp"
+                                    android:letterSpacing="0.06" />
+                            </LinearLayout>
+
+                            <Space android:layout_width="8dp" android:layout_height="0dp" />
+
+                            <LinearLayout
+                                android:layout_width="62dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/timer_box"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:paddingVertical="10dp">
+
+                                <TextView
+                                    android:id="@+id/cdMinutes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="00"
+                                    android:textColor="@color/white"
+                                    android:textSize="23sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/minutes"
+                                    android:textColor="#DDDDDD"
+                                    android:textSize="9sp"
+                                    android:letterSpacing="0.06" />
+                            </LinearLayout>
+
+                            <Space android:layout_width="8dp" android:layout_height="0dp" />
+
+                            <LinearLayout
+                                android:layout_width="62dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/timer_box"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:paddingVertical="10dp">
+
+                                <TextView
+                                    android:id="@+id/cdSeconds"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="00"
+                                    android:textColor="@color/accent_gold"
+                                    android:textSize="23sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/seconds"
+                                    android:textColor="#DDDDDD"
+                                    android:textSize="9sp"
+                                    android:letterSpacing="0.06" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="14dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_calendar_nav"
+                    android:tint="@color/brand_magenta" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/all_festivals"
+                    android:textColor="@color/text_primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.02" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                    android:layoutAnimation="@anim/layout_enter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <!-- ==================== CALENDAR SECTION ==================== -->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/calendarSection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="24dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="22dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_calendar_nav"
+                        android:tint="@color/brand_magenta" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/calendar_title"
+                        android:textColor="@color/text_primary"
+                        android:textSize="23sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Month navigation -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/card_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/calPrev"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_chevron_left" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/calMonthLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="असोज २०८३"
+                            android:textColor="@color/text_primary"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/calMonthSub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sep/Oct 2026"
+                            android:textColor="@color/text_muted"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/calNext"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_chevron_right" />
+                </LinearLayout>
+
+                <!-- Weekday header + day grid, in one smooth card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/card_bg"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="6dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="8dp">
+
+                    <LinearLayout
+                        android:id="@+id/calWeekdayRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+
+                    <GridLayout
+                        android:id="@+id/calGrid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:columnCount="7" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/calSelectedTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=""
+                        android:textColor="@color/text_primary"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/calAddEvent"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/circle_surface"
+                        android:contentDescription="@string/add_event"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_add" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/calEventsBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="6dp"
+                    android:orientation="vertical" />
+
+                <TextView
+                    android:id="@+id/calNoFestivals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="20dp"
+                    android:text="@string/no_festivals_day"
+                    android:textColor="@color/text_muted"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/calDayRecycler"
+                    android:layoutAnimation="@anim/layout_enter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never" />
+
+                <TextView
+                    android:id="@+id/calMonthFestTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="22dp"
+                    android:paddingBottom="12dp"
+                    android:text="यस महिनाका चाडपर्वहरू"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/calMonthRecycler"
+                    android:layoutAnimation="@anim/layout_enter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- ==================== FAVORITES SECTION ==================== -->
+        <LinearLayout
+            android:id="@+id/favoritesSection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="22dp"
+                android:paddingBottom="14dp">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_heart_filled" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/favorites_title"
+                    android:textColor="@color/text_primary"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/favRecycler"
+                    android:layoutAnimation="@anim/layout_enter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingBottom="20dp" />
+
+            <LinearLayout
+                android:id="@+id/favEmptyState"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:src="@drawable/ic_heart_outline_themed"
+                    android:alpha="0.4" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/fav_empty_title"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/fav_empty_sub"
+                    android:textColor="@color/text_muted"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_card"
+        app:itemIconTint="@color/bottom_nav_tint"
+        app:itemTextColor="@color/bottom_nav_tint"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav" />
+
+</LinearLayout>
